@@ -3,16 +3,66 @@
 }
 
 .note{
-    height:100px;
-    width:100px;
+    display:flex;
+    justify-content:center;
+    align-content:center;
+    flex-direction:column;
+    height:250px;
+    width:250px;
     background-color:greenyellow;
+    margin-top:10px;
     border-radius:10px;
-    position:absolute;
-    
-    
+    padding:20px;
+    text-align:center;
+    color:rgb(16, 15, 15);
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+
 }
 
-p{
-    position:relative;
-    top:100px
+.note-form{
+    position:fixed;
+    top:30%;
+    padding:80px;
+    background-color:wheat;
+    border-radius:20px;
 }
+
+.note-form input{
+    padding:10px;
+    border:none;
+    border-radius:10px;
+}
+
+#form{
+    display:flex;
+    flex-direction:column;
+}
+
+.wrapper{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    flex-direction:column;
+    margin-top:20px;
+    padding:20px
+}
+
+.add-note-btn{
+    background-color:white;
+    padding:20px;
+    border-radius:25%;
+    font-size:30px;
+    margin-top:30px;
+}
+
+.note-board{
+    display:grid;
+    align-content:flex-start;
+    grid-template-columns:repeat(3,1fr);
+    height:100vh;
+    gap:10px;
+
+}
+
+

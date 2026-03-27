@@ -6,6 +6,38 @@ body{
     background-color:#282828
 }
 
+.home-wrapper{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    flex-direction:column;
+}
+
+.home-wrapper h1{
+    color:aliceblue;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.home-wrapper p{
+    color:aliceblue;
+    font-family:Arial, Helvetica, sans-serif;
+    margin:20px;
+    font-size:20px
+}
+.home-wrapper a{
+    text-decoration:none;
+    background-color:white;
+    padding:20px;
+    border-radius:25%;
+    font-size:30px;
+    transition:transform 0.3s ease
+
+}
+.home-wrapper a:hover{
+    transform:scale(1.1)
+}
+
 .wrapper{
     display:flex;
     justify-content:center;
@@ -140,11 +172,16 @@ label{
     border-radius:25%;
     font-size:30px;
     margin-top:30px;
-    transition:transform 0.3s ease
+    transition:transform 0.3s ease;
+    color:rgb(62, 1, 62);
 }
 
 .add-note-btn:hover{
     transform:scale(1.1)
+}
+
+.add-note-btn:active{
+    color:green
 }
 
 

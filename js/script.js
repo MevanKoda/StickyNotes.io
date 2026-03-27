@@ -18,14 +18,16 @@ submitBtn.addEventListener('click', (e)=>{
 
     const noteTitle = formData.get('Title')
     const noteText = formData.get('Note')
+    const noteColor = formData.get('Note-color')
 
-    if(!noteTitle || !noteText){
+    if(!noteTitle || !noteText || !noteColor){
         window.alert("Complete the note")
     }
 
     const noteObject = {
         noteTitle : noteTitle,
-        noteText : noteText
+        noteText : noteText,
+        noteColor: noteColor
     }
 
 
@@ -67,8 +69,9 @@ function displayNotes(){
 
 
         note.classList= 'note'
+        note.style.backgroundColor = savedNotes[i].noteColor
         const title = document.createElement('h1')
-        const content = document.createElement('h4')
+        const content = document.createElement('p')
         title.textContent = savedNotes[i].noteTitle
         content.textContent = savedNotes[i].noteText
         note.appendChild(deleteBtn)
@@ -83,7 +86,9 @@ function createNote(noteObject){
         const newNote = document.createElement('div')
         newNote.classList = 'note'
         const title = document.createElement('h1')
-        const content = document.createElement('h4')
+        const content = document.createElement('p')
+
+        newNote.style.backgroundColor = noteObject.noteColor
         title.textContent = noteObject.noteTitle
         content.textContent = noteObject.noteText
 

@@ -54,17 +54,27 @@ addNoteBtn.addEventListener('click',()=>{
 function displayNotes(){
     for(let i=0; i<savedNotes.length; i++){
         const note = document.createElement('div')
+        const deleteBtn = document.createElement('button')
+        const deleteIcon = document.createElement('i')
+        deleteIcon.classList = 'fa-solid fa-trash'
+        deleteBtn.classList = 'delete-btn'
+        
+        deleteBtn.addEventListener('click', (e)=>{
+            e.target.closest('.note').remove()
+            savedNotes.splice(i, 1)
+            localStorage.setItem('Notes', JSON.stringify(savedNotes))
+        })
+
 
         note.classList= 'note'
         const title = document.createElement('h1')
         const content = document.createElement('h4')
-
-
         title.textContent = savedNotes[i].noteTitle
         content.textContent = savedNotes[i].noteText
-
+        note.appendChild(deleteBtn)
         note.appendChild(title)
         note.appendChild(content)
+        deleteBtn.appendChild(deleteIcon)
         noteBoard.appendChild(note)
 }
 }
@@ -76,6 +86,20 @@ function createNote(noteObject){
         const content = document.createElement('h4')
         title.textContent = noteObject.noteTitle
         content.textContent = noteObject.noteText
+
+        const deleteBtn = document.createElement('button')
+        const deleteIcon = document.createElement('i')
+        deleteIcon.classList = 'fa-solid fa-trash'
+        deleteBtn.classList = 'delete-btn'
+        deleteBtn.addEventListener('click', (e)=>{
+            e.target.closest('.note').remove()
+            savedNotes.splice(i, 1)
+            localStorage.setItem('Notes', JSON.stringify(savedNotes))
+        })
+        deleteBtn.appendChild(deleteIcon)
+
+        newNote.appendChild(deleteBtn)
+
         newNote.appendChild(title)
         newNote.appendChild(content)
         noteBoard.appendChild(newNote)

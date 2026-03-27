@@ -1,0 +1,18 @@
+*{
+    margin:0
+}
+
+.note{
+    height:100px;
+    width:100px;
+    background-color:greenyellow;
+    border-radius:10px;
+    position:absolute;
+    
+    
+}
+
+p{
+    position:relative;
+    top:100px
+}

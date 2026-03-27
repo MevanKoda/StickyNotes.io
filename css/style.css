@@ -3,10 +3,37 @@
 }
 
 .note{
-    height:100px;
-    width:100px;
+    display:flex;
+    justify-content:center;
+    align-content:center;
+    flex-direction:column;
+    height:250px;
+    width:250px;
     background-color:greenyellow;
     margin-top:10px;
     border-radius:10px;
+    padding:20px;
+    text-align:center;
+    color:rgb(16, 15, 15);
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 
 }
+
+.wrapper{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    flex-direction:column;
+    margin-top:20px
+}
+
+.note-board{
+    display:grid;
+    align-content:flex-start;
+    grid-template-columns:repeat(3,1fr);
+    height:100vh;
+    gap:10px;
+    margin-top:20px
+}
+

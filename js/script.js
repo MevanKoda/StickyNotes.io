@@ -5,9 +5,6 @@ const noteBoard = document.getElementById('noteBoard')
 
 
 
-
-
-
 submitBtn.addEventListener('click', (e)=>{
     e.preventDefault();
 
@@ -28,7 +25,6 @@ submitBtn.addEventListener('click', (e)=>{
 
     //Reset the form
     form.reset()
-
     createNote(noteObject)
     
 

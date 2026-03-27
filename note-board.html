@@ -16,11 +16,20 @@
         <div class="note-form" id="noteFormWrapper">
             <form id="form">
                 <label>Title</label>
-                <input type="text" name="Title" placeholder="Add Title">
+                <input type="text" name="Title" placeholder="Add Title" maxlength="20">
 
                 <label>Note</label>
-                <textarea name="Note" placeholder="Write Anything"></textarea>
+                <textarea name="Note" placeholder="Write Anything" maxlength="50"></textarea>
 
+                <label>Select Note Color</label>
+                <select name="Note-color">
+                    <option value="Green">Green 🟢</option>
+                    <option value="Red">Red 🔴</option>
+                    <option value="Yellow">Yellow 🟡</option>
+                    <option value="White">White 🌝</option>
+                    <option value="Blue">Blue 🔵</option>
+                    <option value="Orange">Orange 🟠</option>
+                </select>
                 <button id="submitBtn">Create</button>
             </form>
 

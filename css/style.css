@@ -19,13 +19,41 @@
 
 }
 
+.note-form{
+    position:fixed;
+    top:30%;
+    padding:80px;
+    background-color:wheat;
+    border-radius:20px;
+}
+
+.note-form input{
+    padding:10px;
+    border:none;
+    border-radius:10px;
+}
+
+#form{
+    display:flex;
+    flex-direction:column;
+}
+
 .wrapper{
     display:flex;
     justify-content:center;
     align-items:center;
     height:100vh;
     flex-direction:column;
-    margin-top:20px
+    margin-top:20px;
+    padding:20px
+}
+
+.add-note-btn{
+    background-color:white;
+    padding:20px;
+    border-radius:25%;
+    font-size:30px;
+    margin-top:30px;
 }
 
 .note-board{
@@ -34,6 +62,7 @@
     grid-template-columns:repeat(3,1fr);
     height:100vh;
     gap:10px;
-    margin-top:20px
+
 }
+
 

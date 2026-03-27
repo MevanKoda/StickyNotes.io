@@ -1,8 +1,11 @@
 const form = document.getElementById('form')
+const formWrapper = document.getElementById('noteFormWrapper')
 const submitBtn = document.getElementById('submitBtn')
+const addNoteBtn = document.getElementById('addNote')
 let savedNotes = JSON.parse(localStorage.getItem('Notes')) || []
 const noteBoard = document.getElementById('noteBoard')
 
+let isVisible=false
 
 
 submitBtn.addEventListener('click', (e)=>{
@@ -32,9 +35,15 @@ submitBtn.addEventListener('click', (e)=>{
     savedNotes.push(noteObject)
     localStorage.setItem('Notes', JSON.stringify(savedNotes))
 
-
+    formWrapper.style.display = 'none'
 
     
+})
+
+
+addNoteBtn.addEventListener('click',()=>{
+    isVisible = !isVisible
+    formWrapper.style.display = isVisible ? 'block' : 'none';
 })
 
 function displayNotes(){
@@ -44,6 +53,8 @@ function displayNotes(){
         note.classList= 'note'
         const title = document.createElement('h1')
         const content = document.createElement('h4')
+
+
         title.textContent = savedNotes[i].noteTitle
         content.textContent = savedNotes[i].noteText
 

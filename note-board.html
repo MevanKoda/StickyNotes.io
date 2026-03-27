@@ -1,13 +1,17 @@
 <html>
-    <head>
-        <title>New NoteBoard</title>
-        <link rel="stylesheet" href="css/style.css">
-    </head>
+
+<head>
+    <title>New NoteBoard</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
 
 
-    <body>
-        <div class="wrapper">
-        <div class="note-form">
+<body>
+    <div class="wrapper">
+
+        <button id="addNote" class="add-note-btn"><i class="fa-solid fa-plus"></i></button>
+        <div class="note-form" id="noteFormWrapper">
             <form id="form">
                 <label>Title</label>
                 <input type="text" name="Title">
@@ -16,22 +20,13 @@
                 <input type="text" name="Note">
 
                 <button id="submitBtn">Create</button>
-
-
             </form>
-            </form>
-
-
 
 
         </div>
         <div class="note-board" id="noteBoard"></div>
+    </div>
+    <script src="js/script.js"></script>
+</body>
 
-        </div>
-
-
-
-
-        <script src="js/script.js"></script>
-    </body>
 </html>

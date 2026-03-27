@@ -15,8 +15,14 @@
     padding:20px;
     text-align:center;
     color:rgb(16, 15, 15);
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position:relative;
+    transition:transform 0.5s ease;
 
+}
+
+.note:hover{
+    transform:scale(1.1);
 }
 
 .note-form{
@@ -66,3 +72,18 @@
 }
 
 
+.delete-btn{
+    position:absolute;
+    top:20px;
+    right:20px;
+    padding:15px;
+    font-size:15px;
+    background-color:white;
+    border-radius:50%;
+    border:none;
+    transition:transform 0.5s ease
+}
+
+.delete-btn:hover{
+    transform:scale(1.1);
+}

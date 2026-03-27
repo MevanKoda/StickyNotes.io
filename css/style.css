@@ -72,6 +72,7 @@ body{
     position:relative;
     transition:transform 0.5s ease;
     z-index:1;
+    border-left:10px solid white
     word-wrap: break-word;
     overflow-wrap: break-word;
 
@@ -98,7 +99,7 @@ body{
     position:fixed;
     top:25%;
     padding:30px;
-    background-color:rgb(147, 147, 147);
+    background-color:rgb(61, 61, 61);
     border-radius:20px;
     z-index:10;
 

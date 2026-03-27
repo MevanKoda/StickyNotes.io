@@ -8,6 +8,9 @@ const noteBoard = document.getElementById('noteBoard')
 let isVisible=false
 
 
+formWrapper.style.display = 'none'
+
+
 submitBtn.addEventListener('click', (e)=>{
     e.preventDefault();
 
@@ -45,6 +48,8 @@ addNoteBtn.addEventListener('click',()=>{
     isVisible = !isVisible
     formWrapper.style.display = isVisible ? 'block' : 'none';
 })
+
+
 
 function displayNotes(){
     for(let i=0; i<savedNotes.length; i++){

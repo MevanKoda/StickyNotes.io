@@ -99,13 +99,33 @@ body{
     width:25%;
     height:auto;
     position:fixed;
-    top:22%;
-    padding:30px;
+    top:15%;
+    padding:50px 40px 30px 40px;
     background-color:rgb(61, 61, 61);
     border-radius:20px;
     z-index:10;
 
+}
 
+#closeBtn{
+    position:absolute;
+    right:10px;
+    top:10px;
+    padding:12px;
+    margin:10px;
+    font-size:15px;
+    border-radius:40%;
+    border:none;
+    background-color:#282828;
+    color:white;
+    transition:transform 0.3s ease
+
+}
+
+#closeBtn:hover{
+    transform:scale(1.1);
+    background-color:white;
+    color:rgb(25, 24, 24)
 
 }
 
@@ -123,7 +143,8 @@ body{
     border:none;
     border-radius:10px;
     background-color:white;
-    font-size:15px
+    font-size:15px;
+    width:100%
 }
 
 .note-form textarea{
@@ -140,14 +161,14 @@ body{
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  height: 36px;
-  width: 36px;
+  height: 25px;
+  width: 30px;
   border: none;
   border-radius: 50%;
   cursor: pointer;
-  padding: 0;
   background: none;
   box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #cccccc;
+
 }
 
 #colorEl::-webkit-color-swatch-wrapper {

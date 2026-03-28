@@ -142,9 +142,10 @@ body{
     padding:15px;
     border:none;
     border-radius:10px;
-    background-color:white;
+    background-color:rgb(41, 41, 41);
     font-size:15px;
-    width:100%
+    width:100%;
+    color:white
 }
 
 .note-form textarea{
@@ -187,8 +188,14 @@ body{
 
 
 select{
+    -webkit-appearance: none;
+    appearance:none;
+    border:none;
     padding:10px;
-    border-radius:10px
+    border-radius:10px;
+    background-color:rgb(41, 41, 41);
+    color:white
+
 }
 
 label{

@@ -68,7 +68,7 @@ function displayNotes(){
         
         deleteBtn.addEventListener('click', (e)=>{
             e.target.closest('.note').remove()
-            savedNotes.splice(i, 1)
+            savedNotes.splice(i,1)
             localStorage.setItem('Notes', JSON.stringify(savedNotes))
         })
 
@@ -111,7 +111,10 @@ function createNote(noteObject){
         deleteBtn.classList = 'delete-btn'
         deleteBtn.addEventListener('click', (e)=>{
             e.target.closest('.note').remove()
-            savedNotes.splice(i, 1)
+
+            //Find the current clicked note's index
+            const i = savedNotes.findIndex(note => note.noteTitle === noteObject.noteTitle && note.noteText === noteObject.noteText)
+            savedNotes.splice(i,1)
             localStorage.setItem('Notes', JSON.stringify(savedNotes))
         })
         deleteBtn.appendChild(deleteIcon)

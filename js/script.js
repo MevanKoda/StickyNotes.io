@@ -25,6 +25,7 @@ submitBtn.addEventListener('click', (e)=>{
 
     if(!noteTitle || !noteText || !noteColor){
         window.alert("Complete the note")
+        return
     }
 
     const noteObject = {

@@ -20,7 +20,6 @@ submitBtn.addEventListener('click', (e)=>{
     const noteText = formData.get('Note')
     const titleColor = formData.get('Title-color')
     const contentColor = formData.get('Content-color')
-
     const noteColor = formData.get('Note-color')
 
     if(!noteTitle || !noteText || !noteColor){
@@ -68,11 +67,10 @@ function displayNotes(){
         deleteBtn.classList = 'delete-btn'
         
         deleteBtn.addEventListener('click', (e)=>{
-            e.target.closest('.note').remove()
-            savedNotes.splice(i,1)
+            const index = savedNotes.findIndex(n=> n.noteTitle === savedNotes[i].noteTitle && n.noteText === savedNotes[i].noteText)
+            savedNotes.splice(index,1)
             localStorage.setItem('Notes', JSON.stringify(savedNotes))
         })
-
 
         note.classList= 'note'
         note.style.backgroundColor = savedNotes[i].noteColor

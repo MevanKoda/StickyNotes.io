@@ -113,10 +113,6 @@ function buildNoteElement(noteObject){
 
         }
 
-      
-
-       
-
 
         note.appendChild(completeBtn)
         note.appendChild(deleteBtn)

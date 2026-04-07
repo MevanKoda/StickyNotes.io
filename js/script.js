@@ -124,7 +124,6 @@ function createNote(noteObject){
         newNote.appendChild(title)
         newNote.appendChild(content)
         noteBoard.appendChild(newNote)
-        localStorage.setItem('Notes', JSON.stringify(savedNotes))
 }
 
 

@@ -20,14 +20,15 @@ submitBtn.addEventListener('click', (e)=>{
     const noteText = formData.get('Note')
     const titleColor = formData.get('Title-color')
     const contentColor = formData.get('Content-color')
-
     const noteColor = formData.get('Note-color')
 
     if(!noteTitle || !noteText || !noteColor){
         window.alert("Complete the note")
+        return
     }
 
     const noteObject = {
+        noteID : Date.now(),
         noteTitle : noteTitle,
         noteText : noteText,
         noteColor: noteColor,
@@ -45,6 +46,7 @@ submitBtn.addEventListener('click', (e)=>{
     savedNotes.push(noteObject)
     localStorage.setItem('Notes', JSON.stringify(savedNotes))
 
+    isVisible = false
     formWrapper.style.display = 'none'
 
     
@@ -67,11 +69,10 @@ function displayNotes(){
         deleteBtn.classList = 'delete-btn'
         
         deleteBtn.addEventListener('click', (e)=>{
-            e.target.closest('.note').remove()
-            savedNotes.splice(i,1)
+            const index = savedNotes.findIndex(n=> n.noteID === savedNotes[i].noteID)
+            savedNotes.splice(index,1)
             localStorage.setItem('Notes', JSON.stringify(savedNotes))
         })
-
 
         note.classList= 'note'
         note.style.backgroundColor = savedNotes[i].noteColor
@@ -113,8 +114,8 @@ function createNote(noteObject){
             e.target.closest('.note').remove()
 
             //Find the current clicked note's index
-            const i = savedNotes.findIndex(note => note.noteTitle === noteObject.noteTitle && note.noteText === noteObject.noteText)
-            savedNotes.splice(i,1)
+            const index = savedNotes.findIndex(n => n.noteID === noteObject.noteID)
+            savedNotes.splice(index,1)
             localStorage.setItem('Notes', JSON.stringify(savedNotes))
         })
         deleteBtn.appendChild(deleteIcon)
@@ -124,7 +125,6 @@ function createNote(noteObject){
         newNote.appendChild(title)
         newNote.appendChild(content)
         noteBoard.appendChild(newNote)
-        localStorage.setItem('Notes', JSON.stringify(savedNotes))
 }
 
 

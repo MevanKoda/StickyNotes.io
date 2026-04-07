@@ -60,73 +60,47 @@ addNoteBtn.addEventListener('click',()=>{
 
 
 
-function displayNotes(){
-    for(let i=0; i<savedNotes.length; i++){
-        const note = document.createElement('div')
-        const deleteBtn = document.createElement('button')
-        const deleteIcon = document.createElement('i')
-        deleteIcon.classList = 'fa-solid fa-trash'
-        deleteBtn.classList = 'delete-btn'
+function buildNoteElement(noteObject){
+    const note = document.createElement('div')
+    note.classList= 'note'
+    const deleteBtn = document.createElement('button')
+    const deleteIcon = document.createElement('i')
+    deleteIcon.classList = 'fa-solid fa-trash'
+    deleteBtn.classList = 'delete-btn'
         
-        deleteBtn.addEventListener('click', (e)=>{
-            const index = savedNotes.findIndex(n=> n.noteID === savedNotes[i].noteID)
-            savedNotes.splice(index,1)
-            localStorage.setItem('Notes', JSON.stringify(savedNotes))
-        })
+    deleteBtn.addEventListener('click', (e)=>{
+        const index = savedNotes.findIndex(n=> n.noteID === noteObject.noteID)
+        note.remove()
+        savedNotes.splice(index,1)
+        localStorage.setItem('Notes', JSON.stringify(savedNotes))
+    })
 
-        note.classList= 'note'
-        note.style.backgroundColor = savedNotes[i].noteColor
+        note.style.backgroundColor = noteObject.noteColor
         const title = document.createElement('h1')
         const content = document.createElement('p')
-        title.textContent = savedNotes[i].noteTitle
-        content.textContent = savedNotes[i].noteText
+        title.textContent = noteObject.noteTitle
+        content.textContent = noteObject.noteText
 
-        title.style.color=savedNotes[i].titleColor
-        content.style.color = savedNotes[i].contentColor
+        title.style.color= noteObject.titleColor
+        content.style.color = noteObject.contentColor
 
 
         note.appendChild(deleteBtn)
         note.appendChild(title)
         note.appendChild(content)
         deleteBtn.appendChild(deleteIcon)
-        noteBoard.appendChild(note)
+        return note
+
 }
+
+function displayNotes(){
+    savedNotes.forEach(note=> noteBoard.appendChild(buildNoteElement(note)))
 }
 
 function createNote(noteObject){
-        const newNote = document.createElement('div')
-        newNote.classList = 'note'
-        const title = document.createElement('h1')
-        const content = document.createElement('p')
-
-        newNote.style.backgroundColor = noteObject.noteColor
-        title.textContent = noteObject.noteTitle
-        content.textContent = noteObject.noteText
-
-        title.style.color = noteObject.titleColor
-        content.style.color = noteObject.contentColor
-
-        const deleteBtn = document.createElement('button')
-        const deleteIcon = document.createElement('i')
-        deleteIcon.classList = 'fa-solid fa-trash'
-        deleteBtn.classList = 'delete-btn'
-        deleteBtn.addEventListener('click', (e)=>{
-            e.target.closest('.note').remove()
-
-            //Find the current clicked note's index
-            const index = savedNotes.findIndex(n => n.noteID === noteObject.noteID)
-            savedNotes.splice(index,1)
-            localStorage.setItem('Notes', JSON.stringify(savedNotes))
-        })
-        deleteBtn.appendChild(deleteIcon)
-
-        newNote.appendChild(deleteBtn)
-
-        newNote.appendChild(title)
-        newNote.appendChild(content)
-        noteBoard.appendChild(newNote)
+    savedNotes.push(noteObject)
+    localStorage.setItem('Notes',JSON.stringify(savedNotes))
+    noteBoard.appendChild(buildNoteElement(noteObject))
 }
 
-
 displayNotes()
-

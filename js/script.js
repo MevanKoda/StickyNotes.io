@@ -63,17 +63,18 @@ addNoteBtn.addEventListener('click',()=>{
 function buildNoteElement(noteObject){
     const note = document.createElement('div')
     note.classList= 'note'
+
+    const completeBtn = document.createElement('button')
+    const completeIcon = document.createElement('i')
+    completeBtn.classList = 'complete-btn'
+    completeIcon.classList = 'fa-solid fa-check'
     const deleteBtn = document.createElement('button')
     const deleteIcon = document.createElement('i')
     deleteIcon.classList = 'fa-solid fa-trash'
     deleteBtn.classList = 'delete-btn'
         
-    deleteBtn.addEventListener('click', (e)=>{
-        const index = savedNotes.findIndex(n=> n.noteID === noteObject.noteID)
-        note.remove()
-        savedNotes.splice(index,1)
-        localStorage.setItem('Notes', JSON.stringify(savedNotes))
-    })
+    deleteBtn.addEventListener('click', ()=> animateAndRemove(deletedgif))
+    completeBtn.addEventListener('click', ()=> animateAndRemove(completegif))
 
         note.style.backgroundColor = noteObject.noteColor
         const title = document.createElement('h1')
@@ -84,11 +85,48 @@ function buildNoteElement(noteObject){
         title.style.color= noteObject.titleColor
         content.style.color = noteObject.contentColor
 
+        const completegif = document.createElement('i')
+        completegif.classList = 'fa-solid fa-check'
+        completegif.id = 'complete-check-icon'
+        completegif.style.display = 'none'
 
+        const deletedgif = document.createElement('i')
+        deletedgif.classList = 'fa-solid fa-trash'
+        deletedgif.id = 'delete-trash-icon'
+        deletedgif.style.display = 'none'
+
+        function animateAndRemove(gifElement){
+            note.style.backgroundColor = "#1d1d1d"
+            note.style.borderColor = 'transparent'
+            title.textContent = " "
+            content.textContent = " "
+            deleteBtn.remove()
+            completeBtn.remove()
+            gifElement.style.display = 'block'
+             setTimeout(()=>{
+                 const index = savedNotes.findIndex(n=> n.noteID === noteObject.noteID)
+                 note.remove()
+                 gifElement.remove()
+                savedNotes.splice(index,1)
+            localStorage.setItem('Notes', JSON.stringify(savedNotes))
+            },800)
+
+        }
+
+      
+
+       
+
+
+        note.appendChild(completeBtn)
         note.appendChild(deleteBtn)
         note.appendChild(title)
         note.appendChild(content)
+        note.appendChild(completegif)
+        note.appendChild(deletedgif)
+
         deleteBtn.appendChild(deleteIcon)
+        completeBtn.appendChild(completeIcon)
         return note
 
 }

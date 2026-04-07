@@ -28,6 +28,7 @@ submitBtn.addEventListener('click', (e)=>{
     }
 
     const noteObject = {
+        noteID : Date.now(),
         noteTitle : noteTitle,
         noteText : noteText,
         noteColor: noteColor,
@@ -68,7 +69,7 @@ function displayNotes(){
         deleteBtn.classList = 'delete-btn'
         
         deleteBtn.addEventListener('click', (e)=>{
-            const index = savedNotes.findIndex(n=> n.noteTitle === savedNotes[i].noteTitle && n.noteText === savedNotes[i].noteText)
+            const index = savedNotes.findIndex(n=> n.noteID === savedNotes[i].noteID)
             savedNotes.splice(index,1)
             localStorage.setItem('Notes', JSON.stringify(savedNotes))
         })
@@ -113,8 +114,8 @@ function createNote(noteObject){
             e.target.closest('.note').remove()
 
             //Find the current clicked note's index
-            const i = savedNotes.findIndex(note => note.noteTitle === noteObject.noteTitle && note.noteText === noteObject.noteText)
-            savedNotes.splice(i,1)
+            const index = savedNotes.findIndex(n => n.noteID === noteObject.noteID)
+            savedNotes.splice(index,1)
             localStorage.setItem('Notes', JSON.stringify(savedNotes))
         })
         deleteBtn.appendChild(deleteIcon)

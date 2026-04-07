@@ -45,6 +45,7 @@ submitBtn.addEventListener('click', (e)=>{
     savedNotes.push(noteObject)
     localStorage.setItem('Notes', JSON.stringify(savedNotes))
 
+    isVisible = false
     formWrapper.style.display = 'none'
 
     

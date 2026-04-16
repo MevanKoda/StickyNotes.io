@@ -5,6 +5,9 @@ const addNoteBtn = document.getElementById('addNote')
 let savedNotes = JSON.parse(localStorage.getItem('Notes')) || []
 const noteBoard = document.getElementById('noteBoard')
 
+const addSoundEffect = document.getElementById('addSound')
+const completeSoundEffect = document.getElementById('completeSound')
+
 let isVisible=false
 
 
@@ -96,6 +99,7 @@ function buildNoteElement(noteObject){
         deletedgif.style.display = 'none'
 
         function animateAndRemove(gifElement){
+            completeSoundEffect.play()
             note.style.backgroundColor = "#1d1d1d"
             note.style.borderColor = 'transparent'
             title.textContent = " "
@@ -135,6 +139,7 @@ function createNote(noteObject){
     savedNotes.push(noteObject)
     localStorage.setItem('Notes',JSON.stringify(savedNotes))
     noteBoard.appendChild(buildNoteElement(noteObject))
+    addSoundEffect.play()
 }
 
 displayNotes()
